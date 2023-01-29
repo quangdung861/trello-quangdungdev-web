@@ -16,7 +16,7 @@ $ yarn start
 ```
 ### Guide for this  repository is here:
 
-Github: https://github.com/quangdung861
+Github: https://github.com/quangdung861 <br>
 Email: quangdung861@gmail.com
 
 Thanks for watching!
