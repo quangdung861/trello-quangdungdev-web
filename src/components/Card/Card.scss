@@ -1,6 +1,6 @@
 @import "_setting.scss";
 
-li {
+li.card-item {
   background-color: white;
   padding: $gap;
   border-radius: $card-boder-radius;
@@ -8,7 +8,7 @@ li {
   &:not(:last-child) {
     margin-bottom: $gap;
   }
-  img {
+  img.card-cover {
     width: calc(100% + 2 * #{$gap});
     height: auto;
     margin: -$gap 0 $gap (-$gap);
