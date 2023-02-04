@@ -30,7 +30,8 @@ export const initialData = {
               boardId: "board-1",
               columnId: "column-1",
               title: "Title of card 2",
-              cover: "https://github.com/quangdung861/quangdung861/raw/master/assets/avatar.jpg",
+              cover:
+                "https://github.com/quangdung861/quangdung861/raw/master/assets/avatar.jpg",
             },
             {
               id: "card-3",
@@ -108,15 +109,37 @@ export const initialData = {
             {
               id: "card-11",
               boardId: "board-1",
-              columnId: "column-2",
+              columnId: "column-3",
               title: "Title of card 11",
               cover: null,
             },
             {
               id: "card-12",
               boardId: "board-1",
-              columnId: "column-2",
+              columnId: "column-3",
               title: "Title of card 12",
+              cover: null,
+            },
+          ],
+        },
+        {
+          id: "column-4",
+          boardId: "board-1",
+          title: "Done column",
+          cardOrder: ["card-13", "card-14"],
+          cards: [
+            {
+              id: "card-13",
+              boardId: "board-1",
+              columnId: "column-4",
+              title: "Title of card 13",
+              cover: null,
+            },
+            {
+              id: "card-14",
+              boardId: "board-1",
+              columnId: "column-4",
+              title: "Title of card 14",
               cover: null,
             },
           ],
