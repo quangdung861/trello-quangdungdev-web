@@ -122,28 +122,6 @@ export const initialData = {
             },
           ],
         },
-        {
-          id: "column-4",
-          boardId: "board-1",
-          title: "Done column",
-          cardOrder: ["card-13", "card-14"],
-          cards: [
-            {
-              id: "card-13",
-              boardId: "board-1",
-              columnId: "column-4",
-              title: "Title of card 13",
-              cover: null,
-            },
-            {
-              id: "card-14",
-              boardId: "board-1",
-              columnId: "column-4",
-              title: "Title of card 14",
-              cover: null,
-            },
-          ],
-        },
       ],
     },
   ],

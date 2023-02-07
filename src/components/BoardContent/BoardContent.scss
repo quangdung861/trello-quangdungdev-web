@@ -6,6 +6,7 @@ $common-element-bg: rgba(255, 255, 255, 0.24);
   height: $board-content-height;
   overflow-x: auto;
   overflow-y: hidden;
+  display: flex;
   &::-webkit-scrollbar {
     -webkit-appearance: none;
   }
@@ -24,5 +25,20 @@ $common-element-bg: rgba(255, 255, 255, 0.24);
   .column-ghost {
     transition: transform 0.18s ease;
     transform: rotateZ(5deg);
+  }
+  .add-new-column {
+    min-width: 250px;
+    height: 20px;
+    font-size: 15px;
+    line-height: 20px;
+    padding: $gap;
+    margin: 0 $gap;
+    background-color: hsla(0, 0%, 100%, 0.24);
+    cursor: pointer;
+    color: white;
+    border-radius: $column-border-radius;
+    &:hover {
+      background-color: hsla(0, 0%, 100%, 0.3);
+    }
   }
 }
