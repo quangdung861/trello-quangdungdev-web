@@ -1,6 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Container, Draggable } from "react-smooth-dnd";
-import { drop, isEmpty, set } from "lodash";
+import { isEmpty } from "lodash";
+import {
+  Container as BootstrapContainer,
+  Row,
+  Col,
+  Form,
+  Button,
+} from "react-bootstrap";
 
 import "./BoardContent.scss";
 import Column from "components/Column/Column";
@@ -12,6 +19,10 @@ import { initialData } from "actions/initialData";
 const BoardContent = () => {
   const [board, setBoard] = useState({});
   const [columns, setColumns] = useState([]);
+  const [openNewColumnForm, setOpenNewColumnForm] = useState(false);
+  const [newColumnTitle, setNewColumnTitle] = useState("");
+
+  const newColumnInputRef = useRef(null);
 
   useEffect(() => {
     const boardFromDB = initialData.boards.find(
@@ -23,6 +34,13 @@ const BoardContent = () => {
       setColumns(mapOrder(boardFromDB.columns, boardFromDB.columnOrder, "id"));
     }
   }, []);
+
+  useEffect(() => {
+    if (newColumnInputRef && newColumnInputRef.current) {
+      newColumnInputRef.current.focus();
+      newColumnInputRef.current.select()
+    }
+  }, [openNewColumnForm]);
 
   if (isEmpty(board)) {
     return (
@@ -83,6 +101,39 @@ const BoardContent = () => {
     }
   };
 
+  const toggleOpenNewcolumn = () => setOpenNewColumnForm(!openNewColumnForm);
+
+  const onNewColumnTitleChange = (e) => setNewColumnTitle(e.target.value);
+
+  const addNewColumn = () => {
+    if (!newColumnTitle) {
+      newColumnInputRef.current.focus();
+      return;
+    }
+    const newColumnToAdd = {
+      // Create by QuangDungDev
+      // id: `column-${parseInt(columns[columns.length - 1].id.substr(length - 1)) + 1}`
+      id: Math.random().toString(36).substr(2, 5),
+      boardId: board.id,
+      title: newColumnTitle.trim(),
+      cardOrder: [],
+      cards: [],
+    };
+
+    let newColumns = [...columns];
+    newColumns.push(newColumnToAdd);
+
+    let newBoard = { ...board };
+    newBoard.columnOrder.push(newColumnToAdd.id);
+    newBoard.columns = newColumns;
+
+    setColumns(newColumns);
+    setBoard(newBoard);
+
+    setNewColumnTitle("");
+    toggleOpenNewcolumn();
+  };
+
   return (
     <div className="board-content">
       <Container
@@ -103,10 +154,48 @@ const BoardContent = () => {
           </Draggable>
         ))}
       </Container>
-      <div className="add-new-column">
-        <i className="fa fa-plus icon" />
-        Add another column
-      </div>
+
+      <BootstrapContainer className="quangdungdev-trello-container">
+        {!openNewColumnForm ? (
+          <Row>
+            <Col
+              className="add-new-column"
+              onClick={() => toggleOpenNewcolumn()}
+            >
+              <i className="fa fa-plus icon" />
+              Add another column
+            </Col>
+          </Row>
+        ) : (
+          <Row>
+            <Col className="enter-new-column">
+              <Form.Control
+                size="sm"
+                type="text"
+                placeholder="Enter column title..."
+                className="input-enter-new-column"
+                onChange={(e) => onNewColumnTitleChange(e)}
+                onKeyDown={(e) => e.key === "Enter" && addNewColumn()}
+                value={newColumnTitle}
+                ref={newColumnInputRef}
+              />
+              <Button
+                variant="success"
+                size="sm"
+                onClick={() => addNewColumn()}
+              >
+                Thêm danh sách
+              </Button>
+              <span className="cancel-new-column">
+                <i
+                  className="fa fa-trash icon"
+                  onClick={() => toggleOpenNewcolumn()}
+                />
+              </span>
+            </Col>
+          </Row>
+        )}
+      </BootstrapContainer>
     </div>
   );
 };
