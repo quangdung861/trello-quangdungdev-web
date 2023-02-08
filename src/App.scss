@@ -35,8 +35,22 @@ body {
   [contenteditable].form-control:focus {
     box-shadow: none;
   }
-  .btn:focus, .btn:active {
-    outline: none;
-    box-shadow: none;
+  .btn:focus,
+  .btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  .quangdungdev-content-editable {
+    background-color: inherit;
+    border: none;
+    font-size: inherit;
+    font-weight: inherit;
+    cursor: pointer;
+    &:focus {
+      background-color: white;
+      border: 1px solid $input-border-column;
+      cursor: text;
+    }
   }
 }
