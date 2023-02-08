@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { Container, Draggable } from "react-smooth-dnd";
 import { isEmpty } from "lodash";
 import {
@@ -18,13 +18,14 @@ import { initialData } from "actions/initialData";
 
 const BoardContent = () => {
   const [board, setBoard] = useState({});
+  console.log("🚀 ~ file: BoardContent.js:21 ~ BoardContent ~ board", board)
   const [columns, setColumns] = useState([]);
   const [openNewColumnForm, setOpenNewColumnForm] = useState(false);
   const [newColumnTitle, setNewColumnTitle] = useState("");
 
   const newColumnInputRef = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const boardFromDB = initialData.boards.find(
       (board) => board.id === "board-1"
     );
@@ -35,10 +36,10 @@ const BoardContent = () => {
     }
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (newColumnInputRef && newColumnInputRef.current) {
       newColumnInputRef.current.focus();
-      newColumnInputRef.current.select()
+      newColumnInputRef.current.select();
     }
   }, [openNewColumnForm]);
 
@@ -134,6 +135,31 @@ const BoardContent = () => {
     toggleOpenNewcolumn();
   };
 
+  const onUpdateColumn = (newColumnToUpdate) => {
+    const columnIdToUpdate = newColumnToUpdate.id;
+
+    let newColumns = [...columns];
+
+    const columnIndexToUpdate = newColumns.findIndex(
+      (c) => c.id === columnIdToUpdate
+    );
+
+    if (newColumnToUpdate._destroy) {
+      // remove column
+      newColumns.splice(columnIndexToUpdate, 1);
+    } else {
+      // update column info
+      newColumns.splice(columnIndexToUpdate, 1, newColumnToUpdate);
+    }
+
+    let newBoard = { ...board };
+    newBoard.columnOrder = newColumns.map((column) => column.id);
+    newBoard.columns = newColumns;
+
+    setColumns(newColumns);
+    setBoard(newBoard);
+  };
+
   return (
     <div className="board-content">
       <Container
@@ -150,7 +176,11 @@ const BoardContent = () => {
       >
         {columns.map((column, index) => (
           <Draggable key={index}>
-            <Column column={column} onCardDrop={onCardDrop} />
+            <Column
+              column={column}
+              onCardDrop={onCardDrop}
+              onUpdateColumn={onUpdateColumn}
+            />
           </Draggable>
         ))}
       </Container>
