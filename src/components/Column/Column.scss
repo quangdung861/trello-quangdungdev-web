@@ -69,10 +69,12 @@ $column-height: calc(#{$board-content-height} - #{$gap * 2});
   footer {
     padding-left: $gap;
     height: $column-footer-height;
+    min-height: $gap;
     line-height: $column-footer-height;
     border-bottom-left-radius: $column-border-radius;
     border-bottom-right-radius: $column-border-radius;
     color: #888;
+    padding-bottom: 40px;
     .footer-actions {
       margin-left: 5px;
       cursor: pointer;
@@ -111,6 +113,27 @@ $column-height: calc(#{$board-content-height} - #{$gap * 2});
       transition: transform 0.18s ease-in-out;
       transform: rotateZ(0deg);
       font-weight: bold;
+    }
+    .add-new-card-area {
+      .textarea-enter-new-card {
+        min-height: 54px;
+        max-height: 162px;
+        margin-bottom: 5px;
+      }
+    }
+    .add-new-card {
+      max-width: 250px;
+      font-size: 15px;
+      line-height: 20px;
+      padding: $gap;
+      margin-left: $gap;
+      background-color: hsla(0, 0%, 100%, 0.24);
+      cursor: pointer;
+      color: white;
+      border-radius: $column-border-radius;
+      &:hover {
+        background-color: hsla(0, 0%, 100%, 0.3);
+      }
     }
   }
 }

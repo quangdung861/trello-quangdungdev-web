@@ -19,7 +19,7 @@ $common-element-bg: rgba(255, 255, 255, 0.24);
   }
   &::-webkit-scrollbar-thumb {
     background-color: $common-element-bg;
-    border-radius: 8px;
+    border-radius: 8px; 
   }
   .column-drop-preview {
     background-color: rgba(150, 150, 200, 0.1);
@@ -56,17 +56,6 @@ $common-element-bg: rgba(255, 255, 255, 0.24);
     border-radius: $column-border-radius;
     input.input-enter-new-column {
       margin-bottom: 3px;
-    }
-    .cancel-new-column {
-      margin-left: $gap;
-      i {
-        font-size: 18px;
-        cursor: pointer;
-        color: $alert-danger;
-        &:hover {
-          color: darken($alert-danger, 10);
-        }
-      }
     }
   }
 }
