@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
+import React, { useState, useRef, useLayoutEffect } from "react";
 import { Container, Draggable } from "react-smooth-dnd";
 import { isEmpty } from "lodash";
 import {
@@ -18,7 +18,6 @@ import { initialData } from "actions/initialData";
 
 const BoardContent = () => {
   const [board, setBoard] = useState({});
-  console.log("🚀 ~ file: BoardContent.js:21 ~ BoardContent ~ board", board);
   const [columns, setColumns] = useState([]);
   const [openNewColumnForm, setOpenNewColumnForm] = useState(false);
   const toggleOpenNewcolumn = () => setOpenNewColumnForm(!openNewColumnForm);

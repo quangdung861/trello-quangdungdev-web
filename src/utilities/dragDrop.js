@@ -14,7 +14,6 @@ export const applyDrag = (arr, dragResult) => {
   if (addedIndex !== null) {
     result.splice(addedIndex, 0, itemToAdd);
   }
-  console.log("🚀 ~ file: dragDrop.js:19 ~ applyDrag ~ result", result)
   return result;
 };
 
