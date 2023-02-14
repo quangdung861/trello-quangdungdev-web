@@ -18,9 +18,11 @@ import { initialData } from "actions/initialData";
 
 const BoardContent = () => {
   const [board, setBoard] = useState({});
-  console.log("🚀 ~ file: BoardContent.js:21 ~ BoardContent ~ board", board)
+  console.log("🚀 ~ file: BoardContent.js:21 ~ BoardContent ~ board", board);
   const [columns, setColumns] = useState([]);
   const [openNewColumnForm, setOpenNewColumnForm] = useState(false);
+  const toggleOpenNewcolumn = () => setOpenNewColumnForm(!openNewColumnForm);
+
   const [newColumnTitle, setNewColumnTitle] = useState("");
 
   const newColumnInputRef = useRef(null);
@@ -102,8 +104,6 @@ const BoardContent = () => {
     }
   };
 
-  const toggleOpenNewcolumn = () => setOpenNewColumnForm(!openNewColumnForm);
-
   const onNewColumnTitleChange = (e) => setNewColumnTitle(e.target.value);
 
   const addNewColumn = () => {
@@ -180,6 +180,7 @@ const BoardContent = () => {
               column={column}
               onCardDrop={onCardDrop}
               onUpdateColumn={onUpdateColumn}
+              board={board}
             />
           </Draggable>
         ))}
@@ -216,7 +217,7 @@ const BoardContent = () => {
               >
                 Thêm danh sách
               </Button>
-              <span className="cancel-new-column">
+              <span className="cancel-icon">
                 <i
                   className="fa fa-trash icon"
                   onClick={() => toggleOpenNewcolumn()}
