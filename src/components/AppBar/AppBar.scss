@@ -1,12 +1,124 @@
 @import "_setting.scss";
 
-$appbar-bg-color: #0067a3;
+$appbar-bg-color: rgba(68, 82, 91, 0.8);
+
+.overlay-pseudo {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.search-history {
+  z-index: 3;
+  background-color: white;
+  width: 900px;
+  border-radius: 3px;
+  margin-left: -3px;
+  margin-top: 42px;
+  .header-search-input {
+    padding: 5px 15px;
+    color: #838181;
+  }
+  .search-item {
+    display: flex;
+    align-items: center;
+    padding: 3px 15px;
+    .search-item-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 2px;
+      margin-right: 5px;
+      object-fit: cover;
+    }
+    .search-item-description {
+      font-size: 12px;
+      color: #838181;
+    }
+    &:hover {
+      background-color: #fafafa;
+      cursor: pointer;
+    }
+  }
+  .footer-search-input {
+    border: 1px solid #eeeeee;
+
+    .search-advance {
+      padding: 12px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &:hover {
+        background-color: #fafafa;
+        cursor: pointer;
+      }
+    }
+    .search-contribute {
+      padding: 12px 15px;
+      font-weight: bold;
+      text-decoration: underline;
+      color: #838181;
+      text-align: center;
+      background-color: #fafafa;
+    }
+  }
+}
 
 .navbar-app {
   height: $navbar-app-height;
-  padding-left: $gap;
+  padding: 6px 4px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   background-color: $appbar-bg-color;
-  font-size: 1.5rem;
+  color: white;
+
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+
+  .nav-left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+
+    .find {
+      margin-right: 4px;
+    }
+  }
+
+  @media only screen and (max-width: 992px) {
+    .recently {
+      display: none;
+    }
+  }
+  @media only screen and (max-width: 769px) {
+    .has-search {
+      display: none;
+    }
+    .has-search-mobile {
+      display: flex !important;
+      width: 32px;
+      height: 32px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 3px;
+      cursor: pointer;
+      &:hover {
+        background-color: $hover-button-color;
+      }
+    }
+  }
+  @media only screen and (max-width: 596px) {
+    .work-space {
+      display: none;
+    }
+  }
 }
