@@ -14,5 +14,8 @@
     margin: -$gap 0 $gap (-$gap);
     border-top-left-radius: $card-boder-radius;
     border-top-right-radius: $card-boder-radius;
-  };
+  }
+  &:hover {
+    background-color: darken(white, 10);
+  }
 }

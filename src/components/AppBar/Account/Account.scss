@@ -1,0 +1,25 @@
+@import "_setting.scss";
+
+.account {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: $hover-button-color;
+  }
+  .avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00875a;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 0.7rem;
+  }
+}

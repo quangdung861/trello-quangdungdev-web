@@ -1,0 +1,15 @@
+@import "_setting.scss";
+
+.add-board {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: darken($hover-button-color, 25);
+  &:hover {
+    background-color: $hover-button-color;
+  }
+}
