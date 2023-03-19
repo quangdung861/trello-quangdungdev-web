@@ -1,10 +1,150 @@
 @import "_setting.scss";
 
 .navbar-board {
-  height: $navbar-board-height;
-  padding-left: $gap;
-  display: flex;
-  align-items: center;
+  height: auto;
+  padding: 0 $gap;
+  margin: 5px 0px;
   background-color: $board-bg-color;
-  font-size: 1.1rem;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  .navbar-board-btn-divider {
+    border-left: 1px solid hsla(0, 0%, 100%, 0.16);
+    height: 16px;
+    margin: 8px 8px 12px 4px;
+  }
+  .navbar-board-left {
+    display: flex;
+
+    .btn-action {
+      height: 32px;
+      padding: 0 12px;
+      margin: 0px 4px 4px 0px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 3px;
+      cursor: pointer;
+      .left-icon {
+        margin-right: 8px;
+      }
+    }
+    .btn-action > * {
+      white-space: nowrap;
+    }
+    .board-name {
+      font-size: 18px;
+      font-weight: bold;
+      white-space: nowrap;
+      &:hover {
+        background-color: $hover-button-color;
+      }
+    }
+
+    .tick-star {
+      background-color: $button-color;
+      font-size: 18px;
+      &:hover {
+        background-color: $hover-button-color;
+        color: #f2d600;
+        .icon-tick-star {
+          scale: 1.1;
+        }
+        .icon-tick-star-block {
+          scale: 1.1;
+        }
+      }
+      .icon-tick-star-block {
+        color: #f2d600;
+      }
+    }
+
+    .display-work-spacing {
+      background-color: $button-color;
+      &:hover {
+        background-color: $hover-button-color;
+      }
+    }
+
+    .board {
+      background-color: #dfe1e6;
+      color: $app-main-text-color;
+      &:hover {
+        background-color: white;
+      }
+    }
+    .update-display {
+      background-color: $button-color;
+      &:hover {
+        background-color: $hover-button-color;
+      }
+    }
+  }
+  .navbar-board-right {
+    display: flex;
+    justify-content: right;
+    flex: 1;
+    .btn-action {
+      height: 32px;
+      padding: 0 12px;
+      margin: 0px 4px 4px 0px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 3px;
+      cursor: pointer;
+      .left-icon {
+        margin-right: 8px;
+      }
+    }
+    .btn-action > * {
+      white-space: nowrap;
+    }
+    .add-ons {
+      background-color: $button-color;
+      &:hover {
+        background-color: $hover-button-color;
+      }
+    }
+    .share-board {
+      background-color: #ffffff;
+      color: $app-main-text-color;
+    }
+    .board-menu {
+      background-color: $button-color;
+      &:hover {
+        background-color: $hover-button-color;
+      }
+    }
+    .account {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      margin-right: 4px;
+      color: white;
+      cursor: pointer;
+      &:hover {
+        background-color: $hover-button-color;
+      }
+      .avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #00875a;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        font-size: 0.8rem;
+        &:hover {
+          background-color: lighten($color: #00875a, $amount: 3);
+        }
+      }
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useLayoutEffect } from "react";
+import React, { useState, useRef, useLayoutEffect, useContext } from "react";
 import { Container, Draggable } from "react-smooth-dnd";
 import { isEmpty } from "lodash";
 import {
@@ -15,8 +15,10 @@ import { mapOrder } from "utilities/sorts";
 import { applyDrag } from "utilities/dragDrop";
 
 import { initialData } from "actions/initialData";
+import { MyContext } from "App";
 
 const BoardContent = () => {
+  const { hiddenSidebar } = useContext(MyContext);
   const [board, setBoard] = useState({});
   const [columns, setColumns] = useState([]);
   const [openNewColumnForm, setOpenNewColumnForm] = useState(false);
@@ -160,7 +162,11 @@ const BoardContent = () => {
   };
 
   return (
-    <div className="board-content">
+    <div
+      className={
+        hiddenSidebar ? "board-content hidden-sidebar" : "board-content"
+      }
+    >
       <Container
         orientation="horizontal"
         onDrop={onColumnDrop}

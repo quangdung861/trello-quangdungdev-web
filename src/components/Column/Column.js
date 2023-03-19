@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import { Container, Draggable } from "react-smooth-dnd";
 import { Dropdown, Form, Button } from "react-bootstrap";
 import { cloneDeep } from "lodash";
@@ -13,8 +13,14 @@ import {
   selectAllInlineText,
   seveContentAfterPressEnter,
 } from "utilities/contentEditable";
+import { MyContext } from "App";
 
 const Column = ({ column, onCardDrop, onUpdateColumn }) => {
+  const { hiddenSidebar } = useContext(MyContext);
+  console.log(
+    "🚀 ~ file: Column.js:20 ~ Column ~ hiddenSidebar",
+    hiddenSidebar
+  );
   const cards = mapOrder(column.cards, column.cardOrder, "id");
   const [showConfirmModal, setShowConfirmModal] = useState(false);
 
@@ -117,7 +123,9 @@ const Column = ({ column, onCardDrop, onUpdateColumn }) => {
             />
 
             <Dropdown.Menu>
-              <Dropdown.Item onClick={() => toggleOpenNewCardForm()}>Add card...</Dropdown.Item>
+              <Dropdown.Item onClick={() => toggleOpenNewCardForm()}>
+                Add card...
+              </Dropdown.Item>
               <Dropdown.Item
                 onClick={() => setShowConfirmModal(!showConfirmModal)}
               >
@@ -134,7 +142,13 @@ const Column = ({ column, onCardDrop, onUpdateColumn }) => {
         </div>
       </header>
 
-      <div className="card-list">
+      <div
+        className={
+          hiddenSidebar
+            ? "card-list card-list-hidden-sidebar-true"
+            : "card-list card-list-hidden-sidebar-false"
+        }
+      >
         <Container
           groupName="quangdungdev-columns"
           onDrop={(dropResult) => onCardDrop(column.id, dropResult)}
