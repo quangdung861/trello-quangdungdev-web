@@ -10,13 +10,14 @@ body {
 
 .trello-quangdungdev-master {
   height: 100vh;
+  max-height: 100vh;
   overflow: hidden;
-  background-color: $board-bg-color;
+  background: $board-bg-img;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
   color: $app-main-text-color;
-  
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
   .icon {
     font-size: 14px;
     margin: 0 3px;
