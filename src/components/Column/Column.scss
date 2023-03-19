@@ -83,10 +83,10 @@ $column-height: calc(#{$board-content-height} - #{$gap * 2});
       }
     }
   }
-  div.card-list {
+  .card-list {
     margin: 0;
     max-height: calc(
-      #{$column-height} - #{$column-header-height} - #{$column-footer-height}
+      #{$column-height} - #{$column-header-height} - #{$column-footer-height} - #{$gap}
     );
     overflow-y: auto;
     &::-webkit-scrollbar {
@@ -135,5 +135,15 @@ $column-height: calc(#{$board-content-height} - #{$gap * 2});
         background-color: hsla(0, 0%, 100%, 0.3);
       }
     }
+  }
+  .card-list-hidden-sidebar-true {
+    max-height: calc(
+      #{$column-height} - #{$column-header-height} - #{$column-footer-height} + 30px
+    );
+  }
+  .card-list-hidden-sidebar-false {
+    max-height: calc(
+      #{$column-height} - #{$column-header-height} - #{$column-footer-height} - #{$gap}
+    );
   }
 }

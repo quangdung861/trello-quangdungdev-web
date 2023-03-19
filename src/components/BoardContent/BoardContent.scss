@@ -19,7 +19,7 @@ $common-element-bg: rgba(255, 255, 255, 0.24);
   }
   &::-webkit-scrollbar-thumb {
     background-color: $common-element-bg;
-    border-radius: 8px; 
+    border-radius: 8px;
   }
   .column-drop-preview {
     background-color: rgba(150, 150, 200, 0.1);
@@ -58,4 +58,8 @@ $common-element-bg: rgba(255, 255, 255, 0.24);
       margin-bottom: 3px;
     }
   }
+}
+
+.hidden-sidebar {
+  height: calc(#{$board-content-height} + 38px);
 }

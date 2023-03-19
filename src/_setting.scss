@@ -3,8 +3,9 @@
 $gap: 10px;
 
 $navbar-app-height: 7vh;
-$navbar-board-height: 6vh;
-$board-content-height: 86vh;
+$navbar-board-height: 14vh;
+$board-content-height: 79vh;
+$sidebar-app-width: 270px;
 
 // Boder
 $card-boder-radius: 3px;
@@ -16,8 +17,10 @@ $board-bg-color: #0079bf;
 $column-bg-color: #ebecf0;
 $alert-danger: #f48484;
 $input-border-column: #0079bf;
+$button-color: rgba(255, 255, 255, 0.2);
 $hover-button-color: rgba(255, 255, 255, 0.3);
 $nav-bar-bg-color: #fff;
+$border-bottom-color: hsla(0, 0%, 100%, 0.16);
 
 // Screens
 $screen-lg: 1201px;
