@@ -1,5 +1,9 @@
 @import "_setting.scss";
 
+$--board-bar-text-dropdown: #5e6c84;
+$--divider-section: #091e4221;
+$--hover-board-name-pop-up: #091e420a;
+
 .navbar-board {
   height: auto;
   padding: 0 $gap;
@@ -25,20 +29,29 @@
       justify-content: center;
       align-items: center;
       border-radius: 3px;
+      & > * {
+        white-space: nowrap;
+      }
       cursor: pointer;
       .left-icon {
         margin-right: 8px;
       }
     }
-    .btn-action > * {
-      white-space: nowrap;
-    }
+
     .board-name {
       font-size: 18px;
       font-weight: bold;
       white-space: nowrap;
+      width: 150px;
+      background-color: hsla(0, 0%, 100%, 0);
+      border: none;
       &:hover {
         background-color: $hover-button-color;
+      }
+      &:focus {
+        cursor: text;
+        color: $app-main-text-color;
+        background-color: white;
       }
     }
 
@@ -61,9 +74,77 @@
     }
 
     .display-work-spacing {
-      background-color: $button-color;
-      &:hover {
-        background-color: $hover-button-color;
+      .btn-display-work-spacing {
+        background-color: $button-color;
+        &:hover {
+          background-color: $hover-button-color;
+        }
+      }
+      .dropdown-display-work-spacing {
+        width: 370px;
+        position: absolute;
+        background-color: white;
+        border-radius: 3px;
+        z-index: 1;
+        .pop-over-header {
+          margin-bottom: 8px;
+          text-align: center;
+          position: relative;
+          height: 40px;
+          color: $--board-bar-text-dropdown;
+
+          .pop-over-header-title {
+            line-height: 40px;
+            padding: 0 32px;
+            margin: 0 12px;
+            position: relative;
+            border-bottom: 1px solid $--divider-section;
+            display: block;
+          }
+          .pop-over-header-close-btn {
+            top: 0px;
+            right: 0px;
+            padding: 10px 12px 10px 8px;
+            position: absolute;
+            cursor: pointer;
+          }
+        }
+        .pop-over-content {
+          &:last-child {
+            padding-bottom: 18px;
+          }
+          padding: 6px 12px;
+          cursor: pointer;
+          .icon-right {
+            margin-right: 5px;
+          }
+          .organization-icon {
+            color: #ed6d5c;
+          }
+
+          .sub-name {
+            padding-top: 5px;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 16px;
+            color: $--board-bar-text-dropdown;
+          }
+          &:hover {
+            background-color: $--hover-board-name-pop-up;
+          }
+        }
+        .disabled {
+          .organization-icon {
+            color: #a5adba;
+          }
+          .sub-name {
+            color: #a5adba;
+          }
+          color: #a5adba;
+          background: none !important;
+          cursor: default;
+          pointer-events: none;
+        }
       }
     }
 
