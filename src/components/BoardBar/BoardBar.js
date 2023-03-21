@@ -9,27 +9,36 @@ import {
   AiOutlineCheck,
 } from "react-icons/ai";
 import { BsFillPeopleFill, BsFilter } from "react-icons/bs";
+import { HiOutlineViewBoards } from "react-icons/hi";
 import { TbBuildingBank } from "react-icons/tb";
-import { MdOutlinePublic } from "react-icons/md";
+import { MdOutlinePublic, MdOutlineDragIndicator } from "react-icons/md";
 import { VscChevronDown } from "react-icons/vsc";
 import { FaRocket } from "react-icons/fa";
 import { RiUserAddFill } from "react-icons/ri";
 import { FiMoreHorizontal } from "react-icons/fi";
+import { BiCalendar, BiCalendarAlt } from "react-icons/bi";
 import {
   selectAllInlineText,
   seveContentAfterPressEnter,
 } from "utilities/contentEditable.js";
 
-import { Form } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 
 const BoardBar = () => {
   const [isTickStar, setIsTickStar] = useState(false);
-  const [isShowDropdown, setIsShowDropDown] = useState(false);
+  const [isShowDropdown, setIsShowDropDown] = useState("");
+  const [titleBoard, setTitleBoard] = useState("Trello Clone App");
 
   const toggleDropdown = (key) => {
     switch (key) {
       case "display-work-spacing":
-        setIsShowDropDown(!isShowDropdown);
+        setIsShowDropDown("display-work-spacing");
+        break;
+      case "update-display":
+        setIsShowDropDown("update-display");
+        break;
+      case "":
+        setIsShowDropDown("");
         break;
 
       default:
@@ -46,7 +55,8 @@ const BoardBar = () => {
           className="btn-action board-name"
           onKeyDown={(e) => seveContentAfterPressEnter(e)}
           onClick={(e) => selectAllInlineText(e)}
-          value="Trello clone App"
+          value={titleBoard}
+          onChange={(e) => setTitleBoard(e.target.value)}
         />
         <div
           className="btn-action tick-star"
@@ -74,13 +84,13 @@ const BoardBar = () => {
             </div>
             <div>Hiển thị trong Không gian làm việc</div>
           </div>
-          {isShowDropdown && (
+          {isShowDropdown === "display-work-spacing" && (
             <div className="dropdown-display-work-spacing">
               <div className="pop-over-header">
                 <span className="pop-over-header-title">Khả năng xem</span>
                 <span
                   className="pop-over-header-close-btn"
-                  onClick={() => toggleDropdown("display-work-spacing")}
+                  onClick={() => toggleDropdown("")}
                 >
                   <AiOutlineClose />
                 </span>
@@ -143,8 +153,112 @@ const BoardBar = () => {
           </div>
           <div>Bảng</div>
         </div>
-        <div className="btn-action update-display">
-          <VscChevronDown />
+        <div className="update-display">
+          <div
+            className="btn-action btn-update-display"
+            onClick={() => toggleDropdown("update-display")}
+          >
+            <VscChevronDown />
+          </div>
+          {isShowDropdown === "update-display" && (
+            <div className="dropdown-update-display">
+              <div className="pop-over-header">
+                <span className="pop-over-header-title">
+                  Nâng cấp Chế độ xem
+                </span>
+                <span
+                  className="pop-over-header-close-btn"
+                  onClick={() => toggleDropdown("")}
+                >
+                  <AiOutlineClose />
+                </span>
+              </div>
+
+              <div className="pop-over-content">
+                <div className="pop-over-content-item disabled-item">
+                  <div className="content-item-left">
+                    <MdOutlineDragIndicator className="icon-move" />
+                    <input
+                      className="form-check-input checkbox-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckChecked"
+                      checked
+                      disabled
+                    />
+                    <label
+                      className="form-check-label checkbox-label"
+                      htmlFor="flexCheckChecked"
+                    >
+                      <HiOutlineViewBoards />
+                      Bảng
+                    </label>
+                  </div>
+                  <div className="content-item-right">
+                    {/* <AiOutlineLock /> */}
+                  </div>
+                </div>
+                <div className="pop-over-content-item">
+                  <div className="content-item-left  ">
+                    <MdOutlineDragIndicator />
+                    <input
+                      className="form-check-input checkbox-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckChecked-2"
+                    />
+                    <label
+                      className="form-check-label checkbox-label"
+                      htmlFor="flexCheckChecked-2"
+                    >
+                      <BiCalendar />
+                      Lịch
+                    </label>
+                  </div>
+                  <div className="content-item-right">
+                    <AiOutlineLock />
+                  </div>
+                </div>
+                <div className="pop-over-content-item ">
+                  <div className="content-item-left ">
+                    <MdOutlineDragIndicator />
+                    <input
+                      className="form-check-input checkbox-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckChecked-3"
+                    />
+                    <label
+                      className="form-check-label checkbox-label"
+                      htmlFor="flexCheckChecked-3"
+                    >
+                      <BiCalendarAlt />
+                      <span>Lịch trình</span>
+                    </label>
+                  </div>
+                  <div className="content-item-right">
+                    <AiOutlineLock />
+                  </div>
+                </div>
+              </div>
+
+              <div className="pop-over-footer">
+                <div className="title-footer">
+                  Xem công việc của bạn theo những cách mới
+                </div>
+                <div className="des-footer">
+                  Xem các lịch trình chính, nhiệm vụ, dữ liệu và hơn thế nữa
+                  trực tiếp từ bảng Trello của bạn với Trello Premium.
+                </div>
+                <Button className="btn-try-free" variant="primary" size="sm">
+                  Bắt đầu dùng thử miễn phí
+                </Button>
+                <div className="learn-more-trello">
+                  Tìm hiểu thêm về Trello Premium
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

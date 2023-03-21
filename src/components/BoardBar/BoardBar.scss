@@ -81,6 +81,11 @@ $--hover-board-name-pop-up: #091e420a;
         }
       }
       .dropdown-display-work-spacing {
+        box-shadow: var(
+          --ds-shadow-overlay,
+          0 8px 16px -4px rgba(9, 30, 66, 0.25),
+          0 0 0 1px rgba(9, 30, 66, 0.08)
+        );
         width: 370px;
         position: absolute;
         background-color: white;
@@ -155,10 +160,119 @@ $--hover-board-name-pop-up: #091e420a;
         background-color: white;
       }
     }
-    .update-display {
+    .btn-update-display {
       background-color: $button-color;
       &:hover {
         background-color: $hover-button-color;
+      }
+    }
+    .dropdown-update-display {
+      box-shadow: var(
+        --ds-shadow-overlay,
+        0 8px 16px -4px rgba(9, 30, 66, 0.25),
+        0 0 0 1px rgba(9, 30, 66, 0.08)
+      );
+      position: absolute;
+      background-color: white;
+      width: 304px;
+      border-radius: 3px;
+      z-index: 1;
+      .pop-over-header {
+        margin: 0px 12px 8px;
+        text-align: center;
+        border-bottom: 1px solid $--divider-section;
+        color: $--board-bar-text-dropdown;
+        .pop-over-header-title {
+          padding: 0px 32px;
+          height: 40px;
+          line-height: 40px;
+        }
+        .pop-over-header-close-btn {
+          right: 0;
+          top: 0;
+          padding: 10px 12px 10px 8px;
+          position: absolute;
+          cursor: pointer;
+        }
+      }
+      .pop-over-content {
+        padding: 0px 12px;
+
+        .pop-over-content-item {
+          height: 32px;
+          line-height: 32px;
+          margin: 0px 8px 8px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          cursor: pointer;
+          .content-item-left {
+            display: flex;
+            align-items: center;
+            color: $--board-bar-text-dropdown;
+            cursor: pointer;
+            flex: 1;
+            & > * {
+              margin-right: 8px;
+              cursor: pointer;
+            }
+            .checkbox-input {
+              margin-bottom: 3px;
+            }
+            .checkbox-label {
+              display: flex;
+              align-items: center;
+              flex: 1;
+
+              & > * {
+                margin-right: 5px;
+              }
+            }
+          }
+          .content-item-right {
+            padding-bottom: 2px;
+          }
+        }
+        .disabled-item {
+          cursor: not-allowed;
+          .content-item-left {
+            cursor: not-allowed;
+            .icon-move {
+              cursor: not-allowed;
+            }
+            .checkbox-input {
+              cursor: not-allowed;
+            }
+            .checkbox-label {
+              cursor: not-allowed;
+            }
+          }
+          .content-item-right {
+            cursor: not-allowed;
+          }
+        }
+      }
+      .pop-over-footer {
+        color: $--board-bar-text-dropdown;
+        padding: 12px;
+        .title-footer {
+          font-size: 16px;
+          font-weight: bold;
+          margin: 10px 10px 8px;
+        }
+        .des-footer {
+          margin: 12px 10px 17px;
+        }
+        .btn-try-free {
+          width: 100%;
+          margin-bottom: 12px;
+        }
+        .learn-more-trello {
+          text-decoration: underline;
+          text-align: center;
+          margin: 5px 0px;
+          cursor: pointer;
+        }
       }
     }
   }
