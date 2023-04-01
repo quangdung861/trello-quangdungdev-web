@@ -83,7 +83,7 @@ const ModalShareBoard = () => {
               >
                 <AiOutlineLink />
               </div>
-              <div>
+              <div style={{ cursor: "text" }}>
                 <div>Chia sẻ bảng này bằng liên kết</div>
                 <div
                   style={{
@@ -108,7 +108,7 @@ const ModalShareBoard = () => {
               <div className="account">
                 <div className="avatar"> PD </div>
               </div>
-              <div style={{ flex: 1 }}>
+              <div style={{ flex: 1, cursor: "text" }}>
                 <div>Phan Quang Dũng (bạn)</div>
                 <div
                   style={{
