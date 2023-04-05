@@ -5,13 +5,20 @@ $--dynamic-button-hovered: rgba(255, 255, 255, 0.3);
 .sidebar {
   max-width: 265px;
   min-width: 265px;
-  left: 0;
+  left: -265px;
   position: absolute;
+
   height: calc(100vh - #{$navbar-app-height});
   background-color: rgba(68, 82, 91, 0.8);
   color: white;
   display: flex;
   flex-direction: column;
+
+  transform: translateX(265px);
+  transition-duration: .2s;
+  transition-property: transform,width;
+  transition-timing-function: ease-in;
+
   .sidebar-header {
     display: flex;
     align-items: center;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./BoardBar.scss";
 import {
   AiOutlineStar,
@@ -37,10 +37,14 @@ import { Form, Button } from "react-bootstrap";
 
 import ModalShareBoard from "./components/ModalShareBoard";
 
+import { MyContext } from "App";
+
 const BoardBar = () => {
   const [isTickStar, setIsTickStar] = useState(false);
   const [isShowDropdown, setIsShowDropDown] = useState("");
   const [titleBoard, setTitleBoard] = useState("Trello Clone App");
+
+  const { isShowMenu, setIsShowMenu } = useContext(MyContext);
 
   const toggleDropdown = (key) => {
     switch (key) {
@@ -423,7 +427,10 @@ const BoardBar = () => {
 
           <div className="navbar-board-btn-divider" />
           <div className="board-menu">
-            <div className="btn-action btn-board-menu">
+            <div
+              className="btn-action btn-board-menu"
+              onClick={() => setIsShowMenu(!isShowMenu)}
+            >
               <FiMoreHorizontal />
             </div>
           </div>
