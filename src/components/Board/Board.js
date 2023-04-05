@@ -7,9 +7,19 @@ import "./Board.scss";
 import { MyContext } from "App";
 
 const Board = () => {
-  const { hiddenSidebar } = useContext(MyContext);
+  const { hiddenSidebar, isShowMenu, setIsShowMenu } = useContext(MyContext);
   return (
-    <div className={hiddenSidebar ? "extend-board" : "compact-board"}>
+    <div
+      className={
+        hiddenSidebar
+          ? isShowMenu
+            ? "extend-board is-show-menu"
+            : "extend-board"
+          : isShowMenu
+            ? "compact-board is-show-menu"
+            : "compact-board"
+      }
+    >
       <BoardBar />
       <BoardContent />
     </div>

@@ -3,10 +3,11 @@
 $common-element-bg: rgba(255, 255, 255, 0.24);
 
 .board-content {
-  height: $board-content-height;
+  height: calc(#{$board-content-height});
   overflow-x: auto;
   overflow-y: hidden;
   display: flex;
+
   &::after {
     content: "";
     flex: 0 0 $gap;
@@ -61,5 +62,5 @@ $common-element-bg: rgba(255, 255, 255, 0.24);
 }
 
 .hidden-sidebar {
-  height: calc(#{$board-content-height} + 38px);
+  height: calc(#{$board-content-height});
 }

@@ -19,6 +19,7 @@ import { MyContext } from "App";
 
 const BoardContent = () => {
   const { hiddenSidebar } = useContext(MyContext);
+  const { isShowMenu } = useContext(MyContext);
   const [board, setBoard] = useState({});
   const [columns, setColumns] = useState([]);
   const [openNewColumnForm, setOpenNewColumnForm] = useState(false);
@@ -164,7 +165,13 @@ const BoardContent = () => {
   return (
     <div
       className={
-        hiddenSidebar ? "board-content hidden-sidebar" : "board-content"
+        hiddenSidebar
+          ? isShowMenu
+            ? "board-content hidden-sidebar show-menu"
+            : "board-content hidden-sidebar"
+          : isShowMenu
+            ? "board-content show-menu"
+            : "board-content"
       }
     >
       <Container

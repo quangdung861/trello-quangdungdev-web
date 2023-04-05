@@ -3,7 +3,7 @@
 $column-header-height: 48px;
 $column-footer-height: 36px;
 
-$column-height: calc(#{$board-content-height} - #{$gap * 2});
+$column-height: calc(#{$board-content-height} - #{$gap * 5});
 
 .column {
   flex: 0 0 auto;
@@ -138,9 +138,10 @@ $column-height: calc(#{$board-content-height} - #{$gap * 2});
   }
   .card-list-hidden-sidebar-true {
     max-height: calc(
-      #{$column-height} - #{$column-header-height} - #{$column-footer-height} + 30px
+      #{$column-height} - #{$column-header-height} - #{$column-footer-height}
     );
   }
+
   .card-list-hidden-sidebar-false {
     max-height: calc(
       #{$column-height} - #{$column-header-height} - #{$column-footer-height} - #{$gap}
