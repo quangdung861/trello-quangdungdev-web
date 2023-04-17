@@ -17,10 +17,6 @@ import { MyContext } from "App";
 
 const Column = ({ column, onCardDrop, onUpdateColumn }) => {
   const { hiddenSidebar } = useContext(MyContext);
-  console.log(
-    "🚀 ~ file: Column.js:20 ~ Column ~ hiddenSidebar",
-    hiddenSidebar
-  );
   const cards = mapOrder(column.cards, column.cardOrder, "id");
   const [showConfirmModal, setShowConfirmModal] = useState(false);
 
