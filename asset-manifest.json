@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/trello-quangdungdev-web/static/css/main.73e87b6f.css",
+    "main.js": "/trello-quangdungdev-web/static/js/main.8848722b.js",
+    "static/js/787.49593dc1.chunk.js": "/trello-quangdungdev-web/static/js/787.49593dc1.chunk.js",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/trello-quangdungdev-web/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
+    "static/media/fontawesome-webfont.eot": "/trello-quangdungdev-web/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/trello-quangdungdev-web/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+    "static/media/fontawesome-webfont.woff?v=4.7.0": "/trello-quangdungdev-web/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
+    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/trello-quangdungdev-web/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+    "index.html": "/trello-quangdungdev-web/index.html",
+    "main.73e87b6f.css.map": "/trello-quangdungdev-web/static/css/main.73e87b6f.css.map",
+    "main.8848722b.js.map": "/trello-quangdungdev-web/static/js/main.8848722b.js.map",
+    "787.49593dc1.chunk.js.map": "/trello-quangdungdev-web/static/js/787.49593dc1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.73e87b6f.css",
+    "static/js/main.8848722b.js"
+  ]
+}
