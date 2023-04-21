@@ -31,7 +31,7 @@ const Recently = () => {
         <div className="dropdown-recently">
           <div className="dropown-recently-item">
             <img
-              src="https://cdn.cyfoethnaturiol.cymru/media/695524/69562_gwydir-forest-park_natural-resources-wales_no-restrictions_n_a-2-2.jpg?center=0.3325,0.48833333333333334&mode=crop&quality=80&width=1024&height=550&rnd=133159418730000000"
+              src="https://media.cntraveler.com/photos/5eb18e42fc043ed5d9779733/16:9/w_4288,h_2412,c_limit/BlackForest-Germany-GettyImages-147180370.jpg"
               alt=""
             />
 
