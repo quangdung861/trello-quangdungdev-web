@@ -18,15 +18,7 @@ const ModalShareBoard = () => {
             ></button>
           </div>
           <div className="modal-body-customs">
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                height: "40px",
-                marginBottom: "20px",
-              }}
-              className="modal-body-actions"
-            >
+            <div className="modal-body-actions">
               <Form.Control
                 size="sm"
                 type="text"
@@ -37,7 +29,6 @@ const ModalShareBoard = () => {
                 // onKeyDown={(e) => seveContentAfterPressEnter(e)}
                 // onMouseDown={(e) => e.preventDefault()}
                 spellCheck="false"
-                style={{ height: "40px", marginRight: "10px" }}
                 placeholder="Địa chỉ email hoặc tên"
                 className="form-user"
               />
@@ -49,11 +40,10 @@ const ModalShareBoard = () => {
                   flexShrink: 0,
                   fontWeight: "bold",
                   height: "40px",
-                  marginRight: "10px",
                 }}
                 className="member-list"
               >
-                <div style={{ marginRight: "10px" }}>Thành viên</div>
+                <div>Thành viên</div>
                 <VscChevronDown />
               </div>
               <div

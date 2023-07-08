@@ -285,6 +285,7 @@ $--hover-board-name-pop-up: #091e420a;
   .navbar-board-right {
     display: flex;
     justify-content: right;
+    align-items: center;
     flex: 1;
     .btn-action > * {
       white-space: nowrap;
@@ -471,6 +472,10 @@ $--hover-board-name-pop-up: #091e420a;
   }
 
   @media only screen and (max-width: 768px) {
+      .dropdown-display-work-spacing, .dropdown-update-display, .dropdown-add-ons, .dropdown-automation {
+        position: fixed;
+        right: 14px;
+    }
     .btn-action {
       .left-icon {
         margin-right: 0;
@@ -479,5 +484,6 @@ $--hover-board-name-pop-up: #091e420a;
         display: none;
       }
     }
+   
   }
 }
