@@ -6,6 +6,7 @@ body {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 14px;
   line-height: 1.3em;
+  overflow-x: hidden;
 }
 
 .trello-quangdungdev-master {
@@ -49,6 +50,7 @@ body {
     outline: none !important;
     box-shadow: none !important;
   }
+
 
   .quangdungdev-content-editable {
     background-color: inherit;

@@ -68,6 +68,9 @@ const BoardBar = () => {
         break;
     }
   };
+
+  const mediaQuery = "@media only screen and (max-width: 768px)";
+
   return (
     <div>
       <nav className="navbar-board">
@@ -106,7 +109,9 @@ const BoardBar = () => {
               <div className="left-icon">
                 <BsFillPeopleFill />
               </div>
-              <div>Hiển thị trong Không gian làm việc</div>
+              <div className="right-title">
+                Hiển thị trong Không gian làm việc
+              </div>
             </div>
             {isShowDropdown === "display-work-spacing" && (
               <div className="dropdown-display-work-spacing">
@@ -175,7 +180,7 @@ const BoardBar = () => {
             <div className="left-icon">
               <BsFillPeopleFill />
             </div>
-            <div>Bảng</div>
+            <div className="right-title">Bảng</div>
           </div>
           <div className="update-display">
             <div
@@ -295,7 +300,7 @@ const BoardBar = () => {
               <div className="left-icon">
                 <FaRocket />
               </div>
-              <div>Tiện ích bổ sung</div>
+              <div className="right-title">Tiện ích bổ sung</div>
             </div>
             {isShowDropdown === "add-ons" && (
               <div className="dropdown-add-ons">
@@ -340,7 +345,7 @@ const BoardBar = () => {
               <div className="left-icon">
                 <AiFillThunderbolt />
               </div>
-              <div>Tự động hóa</div>
+              <div className="right-title">Tự động hóa</div>
             </div>
             {isShowDropdown === "automation" && (
               <div className="dropdown-automation">
@@ -404,7 +409,7 @@ const BoardBar = () => {
               <div className="left-icon">
                 <BsFilter />
               </div>
-              <div>Lọc</div>
+              <div className="right-title">Lọc</div>
             </div>
           </div>
           <div className="navbar-board-btn-divider" />
@@ -421,7 +426,7 @@ const BoardBar = () => {
               <div className="left-icon">
                 <RiUserAddFill />
               </div>
-              <div>Chia sẻ</div>
+              <div className="right-title">Chia sẻ</div>
             </button>
           </div>
 

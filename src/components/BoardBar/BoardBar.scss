@@ -469,4 +469,15 @@ $--hover-board-name-pop-up: #091e420a;
       }
     }
   }
+
+  @media only screen and (max-width: 768px) {
+    .btn-action {
+      .left-icon {
+        margin-right: 0;
+      }
+      .right-title {
+        display: none;
+      }
+    }
+  }
 }
