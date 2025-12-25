@@ -31,7 +31,7 @@ export const initialData = {
               columnId: "column-1",
               title: "Title of card 2",
               cover:
-                "https://github.com/quangdung861/quangdung861/raw/master/assets/avatar.jpg",
+                "https://images.pexels.com/photos/29506647/pexels-photo-29506647.jpeg",
             },
             {
               id: "card-3",
@@ -82,7 +82,7 @@ export const initialData = {
               columnId: "column-2",
               title: "Title of card 8",
               cover:
-                "https://github.com/quangdung861/quangdung861/raw/master/assets/avatar.jpg",
+                "https://images.pexels.com/photos/31086170/pexels-photo-31086170.jpeg",
             },
             {
               id: "card-9",
